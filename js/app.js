@@ -1,4 +1,11 @@
 //RENDER DATA FROM API
+//PAGINATION
+let countData,
+    pagesText = document.getElementById('pages-label'),
+    currentPage = 1,
+    limitPerPage = 10
+    beforeElement = document.getElementById('before'),
+    afterElement = document.getElementById('after');
 
 const getData = async () => {
     await fetch('http://localhost:3000/address')
@@ -9,6 +16,10 @@ const getData = async () => {
 
 const renderData = function (data) {
   let content = "";
+  countData = data.length;
+  pagesText.innerText = `${currentPage} - ${limitPerPage} de ${countData}`;
+
+
   let addressContainer = document.getElementById('addresses');
   data.forEach(element => {
       content += `
@@ -43,6 +54,3 @@ inputSearch.addEventListener('input', function() {
     }  
 });
 
-  
-//PAGINATION
-let pagesText = document.getElementById('pages-label').innerText;
