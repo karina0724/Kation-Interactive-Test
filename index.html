@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Kation Interactive Test</title>
+</head>
+<body>
+    <header class="w-100 d-flex justify-content-between align-content-center">
+        <div class="name-section d-flex px-3">
+            <img src="assets/User.svg">
+            <h1 class="mt-1">Nombre del Cliente</h1>
+        </div>
+        <div class="actions-buttons">
+            <button class="btn-edit"><img src="assets/Edit.svg">Editar</button>
+            <button class="cancel-button"><img src="assets/Close.svg"></button>
+        </div>
+    </header>
+    <main>
+        <section class="subtitle">
+            <h2>Consulta Cliente Domicilio</h2>
+            <hr />
+        </section>
+        <div class="table-results">
+            <label id="search">Buscar</label>
+            <input type="search" name="search" id="search" class="icon-search" placeholder="Escribe lo que deseas buscar…">
+            <button class="btn-add-address"><img src="assets/Add.svg">Nuevo Domicilio</button>
+            <table class="table table-responsive text-right table-striped">
+                <thead>
+                    <tr>
+                        <th class="text-center">•••<img src="assets/Arrow.svg"></th>
+                        <th>Persona No.<img src="assets/Arrow.svg"></th>
+                        <th>Tipo Domicilio<img src="assets/Arrow.svg"></th>
+                        <th>Calle<img src="assets/Arrow.svg"></th>
+                        <th>Número<img src="assets/Arrow.svg"></th>
+                        <th>Sector<img src="assets/Arrow.svg"></th>
+                        <th>Provincia<img src="assets/Arrow.svg"></th>
+                        <th>Estado<img src="assets/Arrow.svg"></th>
+                    </tr>
+                </thead>
+                <tbody id="addresses">
+                    <!-- data from api-->
+                </tbody>
+            </table>
+            <div class="pagination">
+                <span id="pages-label">1 - 10 de 800</span>
+                <button><img src="assets/Arrow-Blue.svg"></button>
+                <button><img src="assets/Arrow-Blue.svg"></button>
+            </div>
+        </div>
+    </main>
+
+    <div class="modal fade" id="location-detail" tabindex="-1" aria-labelledby="location-detail" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="location-detail">Ubicación | Oficinal Principal</h5>
+              <button type="button" data-bs-dismiss="modal" aria-label="Close"><img src="assets/Close.svg" alt=""></button>
+            </div>
+            <div class="modal-body">
+              <div class="description">
+
+              </div>
+              <div class="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.2493332637055!2d-69.94361898563194!3d18.472361975469223!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8eaf89e4e5607a45%3A0x1c209c7418cf0ad4!2sAv.%20Winston%20Churchill%2C%20Santo%20Domingo!5e0!3m2!1ses-419!2sdo!4v1652559202913!5m2!1ses-419!2sdo" width="450" height="450" style="border:0;" allowfullscreen="true" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <script src="js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
