@@ -19,7 +19,6 @@ const renderData = function (data) {
   countData = data.length;
   pagesText.innerText = `${currentPage} - ${limitPerPage} de ${countData}`;
 
-
   let addressContainer = document.getElementById('addresses');
   data.forEach(element => {
       content += `
