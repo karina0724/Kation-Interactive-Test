@@ -168,9 +168,10 @@ main .table-results tr td
 
 .table-results .pagination button{
     width: 36px;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
 }
 
 .table-results .pagination .before{
     margin-right: 12px; 
-    transform: rotate(90deg);te: rota;
+    transform: rotate(180deg);
 }

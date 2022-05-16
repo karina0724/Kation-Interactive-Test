@@ -1,3 +1,5 @@
+//RENDER DATA FROM API
+
 const getData = async () => {
     await fetch('http://localhost:3000/address')
     .then((resp) => resp.json())
@@ -26,3 +28,21 @@ const renderData = function (data) {
 }
 
 getData();
+
+//SEARCH FUNCTION
+
+let inputSearch = document.getElementById('search');
+
+inputSearch.addEventListener('input', function() {
+    let container = document.getElementById('addresses');
+    let rows = container.getElementsByTagName('tr');
+
+    for (let i = 0; i < rows.length; i++) {
+      let rowContent = rows[i].textContent.replace(/[\s]+/g, ' ').toLowerCase(); 
+      rows[i].style.display = rowContent.includes(inputSearch.value.toLowerCase()) ? "" : "none";
+    }  
+});
+
+  
+//PAGINATION
+let pagesText = document.getElementById('pages-label').innerText;
