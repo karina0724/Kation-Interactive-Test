@@ -153,3 +153,24 @@ main .table-results tr td
 {
     padding: 15px 0;
 }
+
+.table-results .pagination{
+    margin-top: 24px;
+}
+
+.table-results .pagination span{
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 13px;
+    color: #9B9B9B;
+    margin-right: 12px;
+}
+
+.table-results .pagination button{
+    width: 36px;
+}
+
+.table-results .pagination .before{
+    margin-right: 12px; 
+    transform: rotate(90deg);te: rota;
+}
