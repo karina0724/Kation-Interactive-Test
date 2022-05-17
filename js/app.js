@@ -1,12 +1,19 @@
-//RENDER DATA FROM API
 //PAGINATION
 let countData,
     pagesText = document.getElementById('pages-label'),
     currentPage = 1,
     limitPerPage = 10
-    beforeElement = document.getElementById('before'),
-    afterElement = document.getElementById('after');
+    beforeButton = document.getElementById('before'),
+    afterButton = document.getElementById('after')
+    tbody = document.getElementById('addresses'),
+    rows = tbody.getElementsByTagName('tr');
 
+    beforeButton.addEventListener('click', () => { currentPage  += 1; });
+    beforeButton.addEventListener('click', () => { currentPage  -= 1; });
+
+    console.log();
+
+//RENDER DATA FROM API
 const getData = async () => {
     await fetch('http://localhost:3000/address')
     .then((resp) => resp.json())
@@ -18,9 +25,12 @@ const renderData = function (data) {
   let content = "";
   countData = data.length;
   pagesText.innerText = `${currentPage} - ${limitPerPage} de ${countData}`;
+  if(currentPage == 1) beforeButton.style.opacity = "0.5";
+  if(limitPerPage == 10) afterButton.style.opacity = "0.5";
+  
 
   let addressContainer = document.getElementById('addresses');
-  data.forEach(element => {
+  data.forEach((element) => {
       content += `
         <tr>
           <td class="text-center" data-bs-toggle="modal" data-bs-target="#location-detail"><img src='assets/Location.svg'></td>
@@ -36,7 +46,6 @@ const renderData = function (data) {
   });
   addressContainer.innerHTML = content;
 }
-
 getData();
 
 //SEARCH FUNCTION
@@ -44,9 +53,6 @@ getData();
 let inputSearch = document.getElementById('search');
 
 inputSearch.addEventListener('input', function() {
-    let container = document.getElementById('addresses');
-    let rows = container.getElementsByTagName('tr');
-
     for (let i = 0; i < rows.length; i++) {
       let rowContent = rows[i].textContent.replace(/[\s]+/g, ' ').toLowerCase(); 
       rows[i].style.display = rowContent.includes(inputSearch.value.toLowerCase()) ? "" : "none";
